@@ -8,6 +8,8 @@ import { ProductComponent } from './product/product.component';
 import { MarketingComponent } from './marketing/marketing.component';
 import { CategoryComponent } from './category/category.component';
 import { DistrictComponent } from './district/district.component';
+import { GridComponent } from './grid/grid.component';
+import { OrdenComponent } from './orden/orden.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { DistrictComponent } from './district/district.component';
     ProductComponent,
     MarketingComponent,
     CategoryComponent,
-    DistrictComponent
+    DistrictComponent,
+    GridComponent,
+    OrdenComponent
   ],
   imports: [
     BrowserModule
