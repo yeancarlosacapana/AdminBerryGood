@@ -12,10 +12,9 @@
       <tr>
         <td>
           <ul class="contenedor">
-            <li class="item">Bayas
-              <ul class="contenedor-items">
-                <li class="items">Arándanos(kg)</li>
-                <li>Aguaymanto(kg)</li>
+            <li class="item" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}
+              <ul class="contenedor-items" *ngFor="let subcategoria of listaSubCategoria">
+                <li class="items">{{subcategoria.nombre_sub_categoria}}</li>
               </ul>
             </li>
           </ul>

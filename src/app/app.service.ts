@@ -14,4 +14,8 @@ export class AppService {
   {
     return this.http.get(this.Url + '/distrito');
   }
+  public getCategory()
+  {
+    return this.http.get(this.Url + '/categoria');
+  }
 }
