@@ -43,15 +43,11 @@
     </td>
     <td>
       <div class="scroll">
-      <tr align=center><td>La Molina</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Isidro</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Miraflores</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Surco</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Surquillo</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Luis</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Magdalena</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Miguel</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Borja</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
+        <tr align=center *ngFor="let distrito of listaDireccion">
+          <td>{{distrito.nombre_distrito}}</td>
+          <td>{{distrito.costo_envio}}</td>
+          <td><input type="checkbox" name="" id="" value="{{distrito.cod_distrito}}"></td>
+        </tr>
     </div>
     </td>
     <td>
@@ -74,15 +70,11 @@
     </td>
     <td>
       <div class="scroll">
-      <tr align=center><td>La Molina</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Isidro</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Miraflores</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Surco</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Surquillo</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Luis</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Magdalena</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Miguel</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>San Borja</td><td>10</td><td><input type="checkbox" name="" id=""></td></tr>
+      <tr align=center *ngFor="let distrito of listaDireccion">
+        <td>{{distrito.nombre_distrito}}</td>
+        <td>{{distrito.costo_envio}}</td>
+        <td><input type="checkbox" name="" id="" value="{{distrito.cod_distrito}}"></td>
+      </tr>
     </div>
     </td>
     <td>
