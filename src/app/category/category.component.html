@@ -21,13 +21,12 @@
         </td>
         <td>
           <ul class="contenedor">
-              <li><input type="checkbox">
-                <ul class="contenedor-checkbox">
-                  <li><input type="checkbox"></li>
-                  <li><input type="checkbox"></li>
-                </ul>
-              </li>
-            </ul>
+            <li>
+              <ul class="contenedor-checkbox" >
+                <li *ngFor="let categoria of listaCategoria"><input type="checkbox" value="{{categoria.cod_categoria}}"></li>
+              </ul>
+            </li>
+          </ul>
         </td>
       </tr>
     </tbody>

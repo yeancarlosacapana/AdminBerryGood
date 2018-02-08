@@ -16,7 +16,7 @@ export class AddressComponent implements OnInit {
   ngOnInit() {
     this.Services.getDistrito().subscribe(rest => {
       this.listarDistrito = rest.json();
-      console.log(this.listarDistrito);
+     // console.log(this.listarDistrito);
     });
   }
 
