@@ -1,9 +1,9 @@
-<div class="col-lg-6">
+<div class="col-lg-8">
   <table class="table table-bordered">
     <thead>
         <th>Creacion de productos </th>
         <th>
-          <a href="">
+          <a (click)='addItem()'>
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </a>
         </th>
@@ -17,15 +17,35 @@
         <th>Precio</th>
         <th>Tiempo entrega</th>
         <th>Categoria</th>
+        <th>Acción</th>
       </tr>
       <tr *ngFor="let producto of listaProducto">
-        <td>{{producto.nombre_producto}}</td>
-        <td>{{producto.imagen}}</td>
-        <td>{{producto.desc_producto}}</td>
-        <td>{{producto.stock}}</td>
-        <td>{{producto.precio}}</td>
-        <td>{{producto.tiempo_entrega}}</td>
-        <td>{{producto.categoria_cod_categoria}}</td>
+        <td *ngIf="!producto.rowState">{{producto.nombre_producto}}</td>
+        <td *ngIf="producto.rowState"><input type="text" name="" id=""></td>
+        <td *ngIf="!producto.rowState">{{producto.imagen}}</td>
+        <td *ngIf="producto.rowState"><input type="file" name="" id=""></td>
+        <td *ngIf="!producto.rowState">{{producto.desc_producto}}</td>
+        <td *ngIf="producto.rowState"><textarea  rows="4" cols="50"></textarea></td>
+        <td *ngIf="!producto.rowState">{{producto.stock}}</td>
+        <td *ngIf="producto.rowState"><input type="number" name="" id=""></td>
+        <td *ngIf="!producto.rowState">{{producto.precio}}</td>
+        <td *ngIf="producto.rowState"><input type="number" name="" id=""></td>
+        <td *ngIf="!producto.rowState">{{producto.tiempo_entrega}}</td>
+        <td *ngIf="producto.rowState"><input type="date" name="" id=""></td>
+        <td *ngIf="!producto.rowState">{{producto.categoria_cod_categoria}}</td>
+        <td *ngIf="producto.rowState">
+          <select name="" id="">
+            <option value=""></option>
+          </select>
+        </td>
+        <td align=center>
+          <a (click)='eliminarProducto()'>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </a>
+          <a (click)='editarProducto()'>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>

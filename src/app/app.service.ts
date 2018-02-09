@@ -37,4 +37,9 @@ export class AppService {
   {
     return this.http.get(this.Url + 'producto');
   }
+  public postProduct(oProducto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.post( this.Url + 'producto' , oProducto);
+  }
 }
