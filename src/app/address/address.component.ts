@@ -44,7 +44,7 @@ export class AddressComponent implements OnInit , AfterViewInit {
 
     });
   }
-  getDistrito(){
+  getDistrito() {
     this.Services.getDistrito().subscribe(rest => {
       this.listarDistrito = <Distrito[]>rest.json();
      // console.log(this.listarDistrito);
