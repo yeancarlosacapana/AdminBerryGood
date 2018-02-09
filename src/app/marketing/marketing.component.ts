@@ -15,9 +15,11 @@ export class MarketingComponent implements OnInit {
 
   ngOnInit() {
     this.Services.getDistrito().subscribe(rest => {
-      //console.log(rest.json());
       this.listaDireccion = rest.json();
-      console.log(this.listaDireccion);
+    });
+    this.Services.getProduct().subscribe(rest => {
+      this.listaProducto = rest.json();
+      console.log(this.listaProducto);
     });
   }
 

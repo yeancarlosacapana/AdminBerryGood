@@ -18,14 +18,14 @@
         <th>Tiempo entrega</th>
         <th>Categoria</th>
       </tr>
-      <tr>
-        <td>Arandanos (kg)</td>
-        <td>nombre imagen</td>
-        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit</td>
-        <td>50</td>
-        <td>50</td>
-        <td>2</td>
-        <td>Bayas</td>
+      <tr *ngFor="let producto of listaProducto">
+        <td>{{producto.nombre_producto}}</td>
+        <td>{{producto.imagen}}</td>
+        <td>{{producto.desc_producto}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.tiempo_entrega}}</td>
+        <td>{{producto.categoria_cod_categoria}}</td>
       </tr>
     </tbody>
   </table>

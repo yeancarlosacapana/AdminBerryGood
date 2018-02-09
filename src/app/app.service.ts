@@ -6,9 +6,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AppService {
 
-  private Url: string = "http://127.0.0.1:8000/api";
+  private Url: String = 'http://127.0.0.1:8000/api'
 
-  constructor(private http:Http) { }
+  constructor(private http: Http) { }
 
   public getDistrito()
   {
@@ -17,5 +17,9 @@ export class AppService {
   public getCategory()
   {
     return this.http.get(this.Url + '/categoria');
+  }
+  public getProduct()
+  {
+    return this.http.get(this.Url + '/producto');
   }
 }

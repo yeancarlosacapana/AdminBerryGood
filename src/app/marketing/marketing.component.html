@@ -24,10 +24,10 @@
       <tr align=center><td>Producto adicional</td><td><input type="checkbox" name="" id=""></td></tr>
     </td>
     <td>
-      <tr align=center><td>Arandanos</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Aguaymanto</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Café 500 Gr</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Café 200 gr</td><td><input type="checkbox" name="" id=""></td></tr>
+      <tr align=center *ngFor="let productos of listaProducto">
+        <td>{{productos.nombre_producto}}</td>
+        <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
+      </tr>
     </td>
     <td>
       <tr align=center><td><input type="number" name="" id=""></td></tr>
@@ -51,10 +51,10 @@
     </div>
     </td>
     <td>
-      <tr align=center><td>Arandanos</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Aguaymanto</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Café 500 Gr</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Café 200 gr</td><td><input type="checkbox" name="" id=""></td></tr>
+      <tr align=center *ngFor="let productos of listaProducto">
+        <td>{{productos.nombre_producto}}</td>
+        <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
+      </tr>
     </td>
     <td>
       <tr align=center><td><input type="number" name="" id=""></td></tr>
