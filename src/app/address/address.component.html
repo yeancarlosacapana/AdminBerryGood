@@ -3,24 +3,30 @@
     <thead>
       <th colspan="2">Distrito</th>
       <th>
-        <a href="">
+        <a (click)= "additem()" >
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </a>
       </th>
       <th>Costo</th>
     </thead>
     <tbody>
-      <tr *ngFor="let distritos of listarDistrito">
-        <td>{{ distritos.nombre_distrito }}</td>
+      <tr *ngFor="let distritos of listarDistrito; let i = index;">
+        <td *ngIf="!distritos.rowState">{{ distritos.nombre_distrito }}</td>
+        <td *ngIf="distritos.rowState"><input type="text" autofocus name="nombre_distrito" [(ngModel)]="distritos.nombre_distrito"></td>
         <td>
-          <a href="">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <a (click)= "changeState(distritos)" >
+            <span *ngIf="!distritos.rowState" class="glyphicon glyphicon-remove" aria-hidden="true" (click)='eliminarDistrito(distritos.cod_distrito)'></span>
+            <span *ngIf="distritos.rowState" class="glyphicon glyphicon-plus" aria-hidden="true" (click)='grabarDistrito(distritos)'></span>
           </a>
         </td>
-        <td>
-            <input type="checkbox" id="check" name="chk_estado" value="{{distritos.habilitado}}">
+        <td *ngIf="!distritos.rowState">
+            <input type="checkbox" id="check" name="chk_estado" checked value="{{distritos.habilitado}}">
         </td>
-        <td>{{distritos.costo_envio}}</td>
+        <td *ngIf="distritos.rowState">
+          <input type="checkbox" id="check" name="chk_estado" value="{{distritos.habilitado}}">
+      </td>
+        <td *ngIf="!distritos.rowState">{{distritos.costo_envio}}</td>
+        <td *ngIf="distritos.rowState"><input type="number" name="costo_envio" [(ngModel)]="distritos.costo_envio"></td>
       </tr>
     </tbody>
   </table>

@@ -19,7 +19,7 @@ export class MarketingComponent implements OnInit {
     });
     this.Services.getProduct().subscribe(rest => {
       this.listaProducto = rest.json();
-      console.log(this.listaProducto);
+      //console.log(this.listaProducto);
     });
   }
 
