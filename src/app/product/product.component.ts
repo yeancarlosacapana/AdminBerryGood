@@ -12,15 +12,15 @@ export class ProductComponent implements OnInit, AfterViewInit {
   constructor(private Service: AppService) { }
 
   public listaProducto: any[] = [];
-  public listaCategoria:any[] = [];
+  public listaCategoria: any[] = [];
   public addProducto: Producto;
   ngAfterViewInit(): void {}
   ngOnInit() {
     this.Service.getProduct().subscribe(rest => {
       this.listaProducto = rest.json();
-      console.log(this.listaProducto);
+      // console.log(this.listaProducto);
     });
-    this.Service.getCategory().subscribe(rest =>{
+    this.Service.getCategory().subscribe(rest => {
       this.listaCategoria = rest.json();
     });
   }

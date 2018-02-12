@@ -20,6 +20,8 @@ export class CategoryComponent implements OnInit {
     });
     this.Services.getCategory().subscribe(rest => {
       this.listaSubCategoria = rest.json();
+      console.log(rest.json());
+      // console.log(this.listaSubCategoria);
     });
   }
 

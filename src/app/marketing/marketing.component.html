@@ -9,12 +9,12 @@
   <tr>
     <td align=center>Tipo de Campaña</td>
     <td align=center>Producto</td>
-    <td align=center>Cantidad</td>
-    <td align=center>Descuento</td>
+    <td align=center class="cantidad">Cantidad</td>
+    <td align=center class="descuento">Descuento</td>
     <td align=center>Costo de envío</td>
     <td align=center>Producto Adicional</td>
-    <td align=center>Cantidad</td>
-    <td align=center>Descuento</td>
+    <td align=center class="cantidad">Cantidad</td>
+    <td align=center class="descuento">Descuento</td>
     <td colspan="2">Costo de envío</td>
   </tr>
   <tr>
@@ -29,17 +29,15 @@
         <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
       </tr>
     </td>
-    <td>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
+    <td class="td">
+      <tr align=center *ngFor="let productos of listaProducto;">
+        <td ><input type="number" name="" id="" class="form-control "></td>
+      </tr>
     </td>
-    <td>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
+    <td class="td">
+      <tr align=center *ngFor="let productos of listaProducto;">
+        <td ><input type="number" name="" id="" class="form-control "></td>
+      </tr>
     </td>
     <td>
       <div class="scroll">
@@ -56,17 +54,15 @@
         <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
       </tr>
     </td>
-    <td>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
+    <td class="td">
+      <tr align=center *ngFor="let productos of listaProducto">
+        <td ><input type="number" name="" class="form-control "></td>
+      </tr>
     </td>
-    <td>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
-      <tr align=center><td><input type="number" name="" id=""></td></tr>
+    <td class="td">
+      <tr align=center *ngFor="let productos of listaProducto;">
+        <td ><input type="number" name="" class="form-control "></td>
+      </tr>
     </td>
     <td>
       <div class="scroll">

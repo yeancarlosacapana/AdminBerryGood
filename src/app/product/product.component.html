@@ -85,8 +85,8 @@
         <div class="col-lg-12">
           <ul class="">
             <li class="item" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}
-              <ul class="" *ngFor="let subcategoria of listaSubCategoria">
-                <li class="items">{{subcategoria.nombre_sub_categoria}}</li>
+              <ul class="">
+                <li class="items">{{categoria.nombre_sub_categoria}}</li>
               </ul>
             </li>
           </ul>
