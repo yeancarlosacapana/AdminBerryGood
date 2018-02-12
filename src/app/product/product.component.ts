@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
   constructor(private Service: AppService) { }
 
   public listaProducto: any[] = [];
+  public listaCategoria:any[] = [];
   public addProducto: Producto;
   ngAfterViewInit(): void {}
   ngOnInit() {
@@ -19,11 +20,9 @@ export class ProductComponent implements OnInit, AfterViewInit {
       this.listaProducto = rest.json();
       console.log(this.listaProducto);
     });
-  }
-  addItem() {
-    this.addProducto  = new Producto();
-    this.addProducto.rowState = true;
-    this.listaProducto.push(this.addProducto);
+    this.Service.getCategory().subscribe(rest =>{
+      this.listaCategoria = rest.json();
+    });
   }
   changeState(producto: Producto ) {
     producto.rowState = false;
