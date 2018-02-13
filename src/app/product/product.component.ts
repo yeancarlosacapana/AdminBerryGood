@@ -1,6 +1,10 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { AppService } from '../app.service';
 import { Producto } from '../class/producto';
+
+declare var jQuery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -25,12 +29,19 @@ export class ProductComponent implements OnInit, AfterViewInit {
     });
   }
   grabarProducto(producto: Producto) {
+    this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
    console.log(this.addProducto);
+  }
+  imageTransBase64(images) {
+    const ofile = images.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const result = reader.result;
+      $('#img').attr('src', result);
+      console.log(result);
+    };
+    reader.readAsDataURL(ofile);
   }
   eliminarProducto() {}
   editarProducto() {}
-  getFiles(event) {
-    this.files = event.target.files;
-}
-
 }

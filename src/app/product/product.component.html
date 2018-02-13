@@ -69,7 +69,8 @@
         <div class="col-lg-12">
           <div class="form-group">
             <label for="image">Cargar imagen</label>
-            <input type="file" name="imagen" id="image" (change)="getFiles($event)">
+            <input type="file" name="imagen" id="image"   (change)='imageTransBase64($event)'>
+            <img src="" alt="" class="hidden" id="img">
           </div>
         </div>
         <div class="col-lg-12">
