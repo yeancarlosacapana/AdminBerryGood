@@ -86,17 +86,13 @@
           </div>
         </div>
         <div class="col-lg-12">
-            <ul class="contenedor">
-                <li class="item" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}
-                  <input type="checkbox" value="{{categoria.cod_categoria}}" name="categoria_cod_categoria">
-                  <ul class="contenedor-items" >
-                    <li class="items" *ngFor="let subcategoria of categoria.children ">
-                      {{ subcategoria.nombre_categoria }}
-                      <input type="checkbox" value="{{subcategoria.cod_categoria}}" name="subcategoria.cod_categoria">
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+          <div class="form-group">
+            <select name="" id="" [(ngModel)]="addProducto.categoria_cod_categoria" class="form-control">
+              <option value="{{categoria.cod_categoria}}" *ngFor="let categoria of listaCategoria">
+                {{categoria.nombre_categoria}}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="modal-footer">

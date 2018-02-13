@@ -29,7 +29,9 @@ export class ProductComponent implements OnInit, AfterViewInit {
     });
   }
   grabarProducto(producto: Producto) {
-    this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
+    this.Service.postProduct(this.addProducto).subscribe(rest => {
+      this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
+    });
    console.log(this.addProducto);
   }
   imageTransBase64(images) {
