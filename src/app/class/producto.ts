@@ -7,9 +7,4 @@ export class Producto {
   public tiempo_entrega: Date;
   public categoria_cod_categoria: number;
   public nombre_producto: string;
-  public rowState: boolean;
-  constructor() {
-    this.cod_producto = 0;
-    this.rowState = false;
-  }
 }

@@ -10,10 +10,10 @@ import { Producto } from '../class/producto';
 export class ProductComponent implements OnInit, AfterViewInit {
 
   constructor(private Service: AppService) { }
-
+  files: FileList;
   public listaProducto: any[] = [];
   public listaCategoria: any[] = [];
-  public addProducto: Producto;
+  public addProducto: Producto = new Producto();
   ngAfterViewInit(): void {}
   ngOnInit() {
     this.Service.getProduct().subscribe(rest => {
@@ -24,11 +24,13 @@ export class ProductComponent implements OnInit, AfterViewInit {
       this.listaCategoria = rest.json();
     });
   }
-  changeState(producto: Producto ) {
-    producto.rowState = false;
+  grabarProducto(producto: Producto) {
+   console.log(this.addProducto);
   }
-  grabarProducto() {}
   eliminarProducto() {}
   editarProducto() {}
+  getFiles(event) {
+    this.files = event.target.files;
+}
 
 }
