@@ -4,7 +4,7 @@
       <tr>
         <th>Creacion de productos </th>
         <th colspan="7">
-          <a data-toggle="modal" data-target="#myModal" (click)='showForm()'>
+          <a  (click)='showForm()'>
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </a>
         </th>
@@ -98,7 +98,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-          <button type="button" class="btn btn-primary" (click)='grabarProducto()'>Save changes</button>
+          <button type="button" *ngIf='!addProducto.cod_producto  ' class="btn btn-primary" (click)='grabarProducto()'>Save changes</button>
+          <button type="button" *ngIf='addProducto.cod_producto > 0 ' class="btn btn-primary" (click)='grabarProducto()'>Update changes</button>
         </div>
       </div>
 

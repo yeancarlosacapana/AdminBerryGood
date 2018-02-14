@@ -35,15 +35,25 @@ export class ProductComponent implements OnInit, AfterViewInit {
     });
   }
   showForm() {
-    console.log('show');
+      this.addProducto = new Producto();
+    jQuery('#myModal').modal('show');
   }
   grabarProducto(producto: Producto) {
     // this.addProducto = new Producto();
    this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
+   if ( this.addProducto.cod_producto === 0) {
     this.Service.postProduct(this.addProducto).subscribe(rest => {
       jQuery('#myModal').modal('hide');
       this.getProduct();
     });
+   } else {
+     this.Service.updProduct(producto).subscribe(rest => {
+      jQuery('#myModal').modal('hide');
+      this.getProduct();
+     });
+   }
+
+
   }
   imageTransBase64(images) {
     const ofile = images.target.files[0];
