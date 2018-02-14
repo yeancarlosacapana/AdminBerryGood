@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { AppService } from '../app.service';
 import { Producto } from '../class/producto';
+import { Images } from '../class/images';
 
 declare var jQuery: any;
 declare var $: any;
@@ -20,19 +21,29 @@ export class ProductComponent implements OnInit, AfterViewInit {
   public addProducto: Producto = new Producto();
   ngAfterViewInit(): void {}
   ngOnInit() {
+    this.getProduct();
+    this.getCategory();
+  }
+  getProduct() {
     this.Service.getProduct().subscribe(rest => {
       this.listaProducto = rest.json();
-      // console.log(this.listaProducto);
     });
+  }
+  getCategory() {
     this.Service.getCategory().subscribe(rest => {
       this.listaCategoria = rest.json();
     });
   }
+  showForm() {
+    console.log('show');
+  }
   grabarProducto(producto: Producto) {
+    // this.addProducto = new Producto();
+   this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
     this.Service.postProduct(this.addProducto).subscribe(rest => {
-      this.addProducto.imagen = (document.getElementById('img') as HTMLImageElement).src;
+      jQuery('#myModal').modal('hide');
+      this.getProduct();
     });
-   console.log(this.addProducto);
   }
   imageTransBase64(images) {
     const ofile = images.target.files[0];
@@ -40,10 +51,13 @@ export class ProductComponent implements OnInit, AfterViewInit {
     reader.onload = function(e) {
       const result = reader.result;
       $('#img').attr('src', result);
-      console.log(result);
     };
     reader.readAsDataURL(ofile);
   }
+  editarProducto(producto) {
+    this.addProducto = producto;
+    jQuery('#myModal').modal('show');
+  }
   eliminarProducto() {}
-  editarProducto() {}
+
 }

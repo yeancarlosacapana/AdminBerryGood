@@ -42,4 +42,9 @@ export class AppService {
   {
     return this.http.post( this.Url + 'producto' , oProducto);
   }
+  public updProduct(oProducto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.put( this.Url + 'producto' , oProducto);
+  }
 }

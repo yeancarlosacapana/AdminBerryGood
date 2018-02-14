@@ -4,7 +4,7 @@
       <tr>
         <th>Creacion de productos </th>
         <th colspan="7">
-          <a data-toggle="modal" data-target="#myModal">
+          <a data-toggle="modal" data-target="#myModal" (click)='showForm()'>
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </a>
         </th>
@@ -23,17 +23,17 @@
       </tr>
       <tr *ngFor="let producto of listaProducto">
         <td>{{producto.nombre_producto}}</td>
-        <td><img  src = "{{ producto.imagen }}" alt=""></td>
-        <td>{{producto.desc_producto}}</td>
+        <td><img  [src] = "producto.url" class="img-circle img-tamaño"></td>
+        <td>{{(producto.desc_producto.length>40)? (producto.desc_producto | slice:0:40)+'..':(producto.desc_producto)}}</td>
         <td>{{producto.stock}}</td>
         <td>{{producto.precio}}</td>
         <td>{{producto.tiempo_entrega}}</td>
         <td>{{producto.nombre_categoria}}</td>
         <td align=center>
-          <a (click)='eliminarProducto()'>
+          <a (click)='eliminarProducto(producto)'>
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </a>
-          <a (click)='editarProducto()'>
+          <a (click)='editarProducto(producto)'>
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
           </a>
         </td>
@@ -45,60 +45,62 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Creación de un Producto</h4>
+      <form method='POST' enctype="multipart/form-data"></form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Creación de un Producto</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="name">Nombre Producto</label>
+              <input type="text" name="nombre_producto" id="name" class="form-control" [(ngModel)]="addProducto.nombre_producto">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <label for="tiempo_entrega">Tiempo de Entrega</label>
+            <input type="date" name="tiempo_entrega" id="tiempo_entrega" class="form-control" [(ngModel)]="addProducto.tiempo_entrega">
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="description">Descripción</label>
+              <textarea name="desc_producto" id="description" cols="3" rows="4"  class="form-control" [(ngModel)]="addProducto.desc_producto"></textarea>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="image">Cargar imagen</label>
+              <input type="file" name="imagen" id="image"   (change)='imageTransBase64($event)'>
+              <img src="" alt="" class="hidden" id="img">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="precio">Precio</label>
+              <input type="number" name="" id="precio" class="form-control" [(ngModel)]="addProducto.precio">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label for="stock">Stock</label>
+              <input type="number" name="" id="stock" class="form-control" [(ngModel)]="addProducto.stock">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-group">
+              <select name="" id="" [(ngModel)]="addProducto.cod_categoria" class="form-control">
+                <option value="{{categoria.cod_categoria}}" *ngFor="let categoria of listaCategoria">
+                  {{categoria.nombre_categoria}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary" (click)='grabarProducto()'>Save changes</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="name">Nombre Producto</label>
-            <input type="text" name="nombre_producto" id="name" class="form-control" [(ngModel)]="addProducto.nombre_producto">
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <label for="tiempo_entrega">Tiempo de Entrega</label>
-          <input type="date" name="tiempo_entrega" id="tiempo_entrega" class="form-control" [(ngModel)]="addProducto.tiempo_entrega">
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="description">Descripción</label>
-            <textarea name="desc_producto" id="description" cols="3" rows="4"  class="form-control" [(ngModel)]="addProducto.desc_producto"></textarea>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="image">Cargar imagen</label>
-            <input type="file" name="imagen" id="image"   (change)='imageTransBase64($event)'>
-            <img src="" alt="" class="hidden" id="img">
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="precio">Precio</label>
-            <input type="number" name="" id="precio" class="form-control" [(ngModel)]="addProducto.precio">
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <label for="stock">Stock</label>
-            <input type="number" name="" id="stock" class="form-control" [(ngModel)]="addProducto.stock">
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="form-group">
-            <select name="" id="" [(ngModel)]="addProducto.categoria_cod_categoria" class="form-control">
-              <option value="{{categoria.cod_categoria}}" *ngFor="let categoria of listaCategoria">
-                {{categoria.nombre_categoria}}
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-        <button type="button" class="btn btn-primary" (click)='grabarProducto()'>Save changes</button>
-      </div>
-    </div>
+
   </div>
 </div>

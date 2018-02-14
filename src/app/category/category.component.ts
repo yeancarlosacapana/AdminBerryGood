@@ -19,10 +19,7 @@ export class CategoryComponent implements OnInit {
       this.listaCategoria = rest.json();
     });
     this.Services.getCategory().subscribe(rest => {
-      this.listaSubCategoria = rest.json();
-      console.log(rest.json());
-      // console.log(this.listaSubCategoria);
-    });
+      this.listaSubCategoria = rest.json(); });
   }
 
 }

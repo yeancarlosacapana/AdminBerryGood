@@ -5,6 +5,6 @@ export class Producto {
   public precio: number;
   public stock: number;
   public tiempo_entrega: Date;
-  public categoria_cod_categoria: number;
+  public cod_categoria: number;
   public nombre_producto: string;
 }
