@@ -7,4 +7,7 @@ export class Producto {
   public tiempo_entrega: Date;
   public cod_categoria: number;
   public nombre_producto: string;
+  constructor() {
+    this.cod_producto = 0 ;
+  }
 }

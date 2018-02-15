@@ -45,6 +45,6 @@ export class AppService {
   public updProduct(oProducto)
   // tslint:disable-next-line:one-line
   {
-    return this.http.put( this.Url + 'producto' , oProducto);
+    return this.http.put( this.Url + 'producto/' + oProducto.cod_producto , oProducto);
   }
 }

@@ -47,7 +47,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
       this.getProduct();
     });
    } else {
-     this.Service.updProduct(producto).subscribe(rest => {
+     this.Service.updProduct(this.addProducto).subscribe(rest => {
       jQuery('#myModal').modal('hide');
       this.getProduct();
      });
