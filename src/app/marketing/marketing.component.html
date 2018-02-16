@@ -4,7 +4,8 @@
   </tr>
   <tr>
     <th colspan='5'>Campaña</th>
-    <th colspan='5'>Producto adicional</th>
+    <th colspan='4'>Producto adicional</th>
+    <th colspan='1'> <button class='btn btn-primary btn-block'>Guardar Campaña</button> </th>
   </tr>
   <tr>
     <td align=center>Tipo de Campaña</td>
@@ -19,24 +20,43 @@
   </tr>
   <tr>
     <td>
-      <tr align=center><td>Envio gratis</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Descuento</td><td><input type="checkbox" name="" id=""></td></tr>
-      <tr align=center><td>Producto adicional</td><td><input type="checkbox" name="" id=""></td></tr>
+      <tr align=center>
+        <td>Envio gratis</td>
+        <td>
+          <input type="checkbox" name="envio_gratis" value="envio_gratis" [(ngModel)]="addTipodeCampana.envio_gratis">
+        </td>
+      </tr>
+      <tr align=center>
+        <td>Descuento</td>
+        <td>
+          <input type="checkbox" name=descuento value="descuento" [(ngModel)]="addTipodeCampana.descuento">
+        </td>
+      </tr>
+      <tr align=center>
+        <td>Producto adicional</td>
+        <td>
+          <input type="checkbox" name="producto_adicional" value="producto_adicional" [(ngModel)]="addTipodeCampana.producto_adicional">
+        </td>
+      </tr>
     </td>
     <td>
       <tr align=center *ngFor="let productos of listaProducto">
         <td>{{productos.nombre_producto}}</td>
-        <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
+        <td>
+          <input type="checkbox" name="cantidad"  value="{{productos.cod_producto}}" [(ngModel)]="productos.cantidad">
+        </td>
       </tr>
     </td>
     <td class="td">
-      <tr align=center *ngFor="let productos of listaProducto;">
-        <td ><input type="number" name="" id="" class="form-control "></td>
+      <tr align=center *ngFor="let productos of listaProducto">
+        <td >
+          <input type="number" name="cantidad" class="form-control" [(ngModel)]="productos.cantidad">
+        </td>
       </tr>
     </td>
     <td class="td">
-      <tr align=center *ngFor="let productos of listaProducto;">
-        <td ><input type="number" name="" id="" class="form-control "></td>
+      <tr align=center *ngFor="let productos of listaProducto">
+        <td ><input type="number" name="descuento" class="form-control" [(ngModel)]="productos.descuento"></td>
       </tr>
     </td>
     <td>
@@ -44,24 +64,24 @@
         <tr align=center *ngFor="let distrito of listaDireccion">
           <td>{{distrito.nombre_distrito}}</td>
           <td>{{distrito.costo_envio}}</td>
-          <td><input type="checkbox" name="" id="" value="{{distrito.cod_distrito}}"></td>
+          <td><input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
         </tr>
     </div>
     </td>
     <td>
       <tr align=center *ngFor="let productos of listaProducto">
         <td>{{productos.nombre_producto}}</td>
-        <td><input type="checkbox" name="" id="" value="{{productos.cod_producto}}"></td>
+        <td><input type="checkbox" name="cod_producto" id="" value="{{productos.cod_producto}}"></td>
       </tr>
     </td>
     <td class="td">
       <tr align=center *ngFor="let productos of listaProducto">
-        <td ><input type="number" name="" class="form-control "></td>
+        <td ><input type="number" name="cantidad" class="form-control " [(ngModel)]="addCampana.cantidad"></td>
       </tr>
     </td>
     <td class="td">
       <tr align=center *ngFor="let productos of listaProducto;">
-        <td ><input type="number" name="" class="form-control "></td>
+        <td ><input type="number" name="descuento" class="form-control " [(ngModel)]="addCampana.descuento"></td>
       </tr>
     </td>
     <td>
@@ -69,20 +89,26 @@
       <tr align=center *ngFor="let distrito of listaDireccion">
         <td>{{distrito.nombre_distrito}}</td>
         <td>{{distrito.costo_envio}}</td>
-        <td><input type="checkbox" name="" id="" value="{{distrito.cod_distrito}}"></td>
+        <td><input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
       </tr>
     </div>
     </td>
     <td>
       <tr>
-        <td><span class="glyphicon glyphicon-calendar"></span>Fecha desde
-        <tr><input type="date"></tr>
+        <td>
+          <span class="glyphicon glyphicon-calendar"></span>Fecha desde
+        <tr>
+          <input type="date"  [(ngModel)]="addCampana.fecha_inicio">
+        </tr>
         </td>
       </tr>
       <tr>
-          <td><span class="glyphicon glyphicon-calendar"></span>Fecha hasta
-            <tr><input type="date"></tr>
-            </td>
+        <td>
+          <span class="glyphicon glyphicon-calendar"></span>Fecha hasta
+          <tr>
+            <input type="date" [(ngModel)]="addCampana.fecha_final">
+          </tr>
+        </td>
       </tr>
     </td>
   </tr>
