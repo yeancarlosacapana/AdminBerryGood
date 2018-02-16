@@ -47,4 +47,9 @@ export class AppService {
   {
     return this.http.put( this.Url + 'producto/' + oProducto.cod_producto , oProducto);
   }
+  destroyProduct(cod_producto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.delete( this.Url + 'producto/' + cod_producto);
+  }
 }

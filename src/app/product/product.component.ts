@@ -68,6 +68,11 @@ export class ProductComponent implements OnInit, AfterViewInit {
     this.addProducto = producto;
     jQuery('#myModal').modal('show');
   }
-  eliminarProducto() {}
-
+  eliminarProducto(cod_producto: number) {
+    // console.log(cod_producto);
+    this.Service.destroyProduct(cod_producto).subscribe(rest => {
+      console.log(rest);
+      this.getProduct();
+    });
+  }
 }

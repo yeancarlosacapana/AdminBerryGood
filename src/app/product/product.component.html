@@ -30,7 +30,7 @@
         <td>{{producto.tiempo_entrega}}</td>
         <td>{{producto.nombre_categoria}}</td>
         <td align=center>
-          <a (click)='eliminarProducto(producto)'>
+          <a (click)='eliminarProducto(producto.cod_producto)'>
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </a>
           <a (click)='editarProducto(producto)'>
