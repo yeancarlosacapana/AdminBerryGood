@@ -13,11 +13,9 @@
         <td colspan="2">
           <ul class="contenedor">
             <li class="item" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}
-              <input type="checkbox" value="{{categoria.cod_categoria}}">
               <ul class="contenedor-items" >
                 <li class="items" *ngFor="let subcategoria of categoria.children ">
                   {{ subcategoria.nombre_categoria }}
-                  <input type="checkbox" value="{{subcategoria.cod_categoria}}">
                 </li>
               </ul>
             </li>
@@ -36,30 +34,22 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="categoria">Categoria</label>
-            <input type="text" name="" id="categoria" class="form-control">
+            <input type="text" name="nombre_categoria" id="categoria" class="form-control" [(ngModel)]="addCategoria.nombre_categoria">
           </div>
           <div class="form-group">
-              <button  class="form-control btn btn-primary">Agregar Categoria</button>
-          </div>
-          <div class="form-group">
-            <label for="subcategoria">Subcategoria</label>
-            <input type="text" name="" id="subcategoria" class="form-control">
-          </div>
-          <div class="form-group">
-            <h4 class="modal-title"> Seleccione una Categoria para la SubCategoria</h4>
-            <label for="SelectCategoria">Categoria</label>
-            <select name="" id="SelectCategoria" class="form-control">
-              <option value="{{categoria.cod_categoria}}" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}</option>
+            <label for=""></label>
+            <select name="" id="" [(ngModel)]="addCategoria.id_parent" class="form-control">
+              <option [value]="categoria.cod_categoria" *ngFor="let categoria of listaCategoria">{{categoria.nombre_categoria}}</option>
             </select>
-          </div>
-          <div class="form-group">
-              <button  class="form-control btn btn-primary">Agregar Subcategoria</button>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-large btn-block btn-primary" (click)='AgregarCategoria()'>Guardar</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+

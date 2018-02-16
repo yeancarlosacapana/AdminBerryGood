@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Categoria } from '../class/categoria';
 
 declare var jQuery: any;
 declare var $: any;
@@ -14,6 +15,7 @@ export class CategoryComponent implements OnInit {
 
   public listaCategoria: any[] = [];
   public listaSubCategoria: any[] = [];
+  public addCategoria: Categoria =  new Categoria();
 
   constructor(private Services: AppService) { }
 
@@ -33,5 +35,11 @@ export class CategoryComponent implements OnInit {
     this.Services.getCategory().subscribe(rest => {
       this.listaSubCategoria = rest.json(); });
   }
-
+  AgregarCategoria(categoria: Categoria) {
+    this.Services.postCategory(this.addCategoria).subscribe(rest => {
+      jQuery('#categoryModal').modal('hide');
+      this.getCategory();
+      this.getSubCategory();
+    });
+  }
 }

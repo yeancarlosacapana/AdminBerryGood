@@ -32,6 +32,21 @@ export class AppService {
   {
     return this.http.get(this.Url + 'categoria');
   }
+  public postCategory(oProducto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.post( this.Url + 'categoria' , oProducto);
+  }
+  public updCategory(oProducto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.put( this.Url + 'categoria/' + oProducto.cod_producto , oProducto);
+  }
+  destroyCategory(cod_producto)
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.delete( this.Url + 'categoria/' + cod_producto);
+  }
   public getProduct()
   // tslint:disable-next-line:one-line
   {
