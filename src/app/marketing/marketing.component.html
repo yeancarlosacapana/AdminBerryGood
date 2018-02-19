@@ -5,7 +5,7 @@
   <tr>
     <th colspan='5'>Campaña</th>
     <th colspan='4'>Producto adicional</th>
-    <th colspan='1'> <button class='btn btn-primary btn-block'>Guardar Campaña</button> </th>
+    <th colspan='1'> <button class='btn btn-primary btn-block' (click)='postCapana()'>Guardar Campaña</button> </th>
   </tr>
   <tr>
     <td align=center>Tipo de Campaña</td>
@@ -43,35 +43,39 @@
       <tr align=center *ngFor="let productos of listaProducto">
         <td>{{productos.nombre_producto}}</td>
         <td>
-          <input type="checkbox" name="cantidad"  value="{{productos.cod_producto}}" [(ngModel)]="productos.cantidad">
+          <input type="checkbox"   value="{{productos.cod_producto}}" [(ngModel)]="productos.cod_producto">
         </td>
       </tr>
     </td>
     <td class="td">
+      <!-- cantidad -->
       <tr align=center *ngFor="let productos of listaProducto">
         <td >
-          <input type="number" name="cantidad" class="form-control" [(ngModel)]="productos.cantidad">
+          <input type="number" name="precio" class="form-control" [(ngModel)]="productos.precio">
         </td>
       </tr>
     </td>
     <td class="td">
+      <!-- descuento -->
       <tr align=center *ngFor="let productos of listaProducto">
-        <td ><input type="number" name="descuento" class="form-control" [(ngModel)]="productos.descuento"></td>
+        <td ><input type="number" name="descuento" class="form-control" [(ngModel)]="addCampana.descuento"></td>
       </tr>
     </td>
     <td>
       <div class="scroll">
         <tr align=center *ngFor="let distrito of listaDireccion">
           <td>{{distrito.nombre_distrito}}</td>
-          <td>{{distrito.costo_envio}}</td>
-          <td><input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
+          <td>
+            <input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio">
+          </td>
         </tr>
     </div>
     </td>
     <td>
       <tr align=center *ngFor="let productos of listaProducto">
         <td>{{productos.nombre_producto}}</td>
-        <td><input type="checkbox" name="cod_producto" id="" value="{{productos.cod_producto}}"></td>
+        <td>
+          <input type="checkbox" name="cod_producto" value="{{productos.cod_producto}}" [(ngModel)]="productos.cod_producto"></td>
       </tr>
     </td>
     <td class="td">
@@ -81,15 +85,16 @@
     </td>
     <td class="td">
       <tr align=center *ngFor="let productos of listaProducto;">
-        <td ><input type="number" name="descuento" class="form-control " [(ngModel)]="addCampana.descuento"></td>
+        <td >
+          <input type="number" name="descuento" class="form-control " [(ngModel)]="addCampana.descuento">
+        </td>
       </tr>
     </td>
     <td>
       <div class="scroll">
       <tr align=center *ngFor="let distrito of listaDireccion">
         <td>{{distrito.nombre_distrito}}</td>
-        <td>{{distrito.costo_envio}}</td>
-        <td><input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
+        <td><input type="checkbox" name="costo" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
       </tr>
     </div>
     </td>

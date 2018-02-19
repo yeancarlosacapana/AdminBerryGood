@@ -3,6 +3,7 @@ import { AppService } from '../app.service';
 import { Campaña } from '../class/campaña';
 import { TipoCampaña } from '../class/tipo-campaña';
 import { CampañaAdicional } from '../class/campaña-adicional';
+import { EnvioGratis} from '../class/envio-gratis';
 
 @Component({
   selector: 'app-marketing',
@@ -17,6 +18,7 @@ export class MarketingComponent implements OnInit {
   public addCampana: Campaña = new Campaña();
   public addTipodeCampana: TipoCampaña = new TipoCampaña();
   public addCampanaAdicional: CampañaAdicional = new CampañaAdicional();
+  public addEnvioFree: EnvioGratis = new EnvioGratis();
   constructor(private Services: AppService) { }
 
 
@@ -34,7 +36,7 @@ export class MarketingComponent implements OnInit {
       this.listaProducto = rest.json();
     });
   }
-  postCapaña(campaña: Campaña , tipoC: TipoCampaña , camAdi: CampañaAdicional) {
+  postCapana(campaña: Campaña , tipoC: TipoCampaña , camAdi: CampañaAdicional) {
    console.log(this.addCampana);
    console.log(this.addCampanaAdicional) ;
    console.log(this.addTipodeCampana);

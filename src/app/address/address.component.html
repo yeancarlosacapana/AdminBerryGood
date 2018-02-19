@@ -12,7 +12,9 @@
     <tbody>
       <tr *ngFor="let distritos of listarDistrito; let i = index;">
         <td *ngIf="!distritos.rowState">{{ distritos.nombre_distrito }}</td>
-        <td *ngIf="distritos.rowState"><input type="text" autofocus name="nombre_distrito" [(ngModel)]="distritos.nombre_distrito"></td>
+        <td *ngIf="distritos.rowState">
+          <input type="text" autofocus name="nombre_distrito" [(ngModel)]="distritos.nombre_distrito">
+        </td>
         <td>
           <a (click)= "changeState(distritos)" >
             <span *ngIf="!distritos.rowState" class="glyphicon glyphicon-remove" aria-hidden="true" (click)='eliminarDistrito(distritos.cod_distrito)'></span>
