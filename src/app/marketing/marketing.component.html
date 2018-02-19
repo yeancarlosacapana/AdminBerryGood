@@ -57,16 +57,16 @@
     </td>
     <td class="td">
       <!-- descuento -->
-      <tr align=center *ngFor="let productos of listaProducto">
-        <td ><input type="number" name="descuento" class="form-control" [(ngModel)]="addCampana.descuento"></td>
+      <tr align=center *ngFor="let productos of listaProducto;let i = index">
+        <td ><input type="number" name="descuento" class="form-control" [(ngModel)]="addCampana.descuento[i + 1]"></td>
       </tr>
     </td>
     <td>
       <div class="scroll">
-        <tr align=center *ngFor="let distrito of listaDireccion">
+        <tr align=center *ngFor="let distrito of listaDireccion;let i = index">
           <td>{{distrito.nombre_distrito}}</td>
           <td>
-            <input type="checkbox" name="costo_envio" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio">
+            <input type="checkbox" name="costo_envio" [value]="distrito.costo_envio" [(ngModel)]="distrito.costo_envio[i + 1]">
           </td>
         </tr>
     </div>
@@ -92,9 +92,9 @@
     </td>
     <td>
       <div class="scroll">
-      <tr align=center *ngFor="let distrito of listaDireccion">
+      <tr align=center *ngFor="let distrito of listaDireccion ; let i = index">
         <td>{{distrito.nombre_distrito}}</td>
-        <td><input type="checkbox" name="costo" value="{{distrito.costo_envio}}" [(ngModel)]="distrito.costo_envio"></td>
+        <td><input type="checkbox" name="costo" [value]="distrito.costo_envio" [(ngModel)]="distrito.costo_envio[i+1]"></td>
       </tr>
     </div>
     </td>
