@@ -7,22 +7,22 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
-import { MarketingComponent } from './marketing/marketing.component';
 import { CategoryComponent } from './category/category.component';
-import { GridComponent } from './grid/grid.component';
 import { OrdenComponent } from './orden/orden.component';
 import { AddressComponent } from './address/address.component';
+import { CampainComponent } from './campain/campain.component';
+import { AdditionalProductComponent } from './additional-product/additional-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    MarketingComponent,
     CategoryComponent,
-    GridComponent,
     OrdenComponent,
-    AddressComponent
+    AddressComponent,
+    CampainComponent,
+    AdditionalProductComponent
   ],
   imports: [
     BrowserModule,

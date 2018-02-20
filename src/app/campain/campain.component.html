@@ -1,0 +1,96 @@
+<table class="table table-bordered">
+    <tr>
+      <th colspan='12'>MARKETING COMERCIAL</th>
+    </tr>
+    <tr>
+      <th colspan='8'>Campaña
+        <a (click)='showModalCampain()'>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </th>
+      <!-- <th colspan='1'> <button class='btn btn-primary btn-block' (click)='postCampain()'>Guardar Campaña</button> </th> -->
+    </tr>
+    <tr>
+      <td align=center>Tipo de Campaña</td>
+      <td align=center>Nombre de Campaña</td>
+      <td align=center>Producto</td>
+      <td align=center>Cantidad</td>
+      <td align=center>Descuento</td>
+      <td align=center>Costo de envío</td>
+      <td align=center>Fecha Inicio</td>
+      <td align=center>Fecha Fin</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+    <!-- Camapaña Modal -->
+    <div class="modal fade" id="campainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Agregar Campaña</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="nombre_campaña">Nombre Campaña</label>
+                <input type="text" id="nombre_campaña" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Tipo de Campaña</label>
+                <div class="cont-check">
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="free">Envio Gratis</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="descount">Descuento</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="AditionalProduct">Producto Adicional</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Producto</label>
+                <select  multiple class="form-control">
+                  <option *ngFor="let productos of listaProducto" [value]="productos.cod_producto">{{productos.nombre_producto}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Lugar Envio</label>
+                <select  multiple class="form-control">
+                  <option *ngFor="let distrito of listaDireccion" [value]="distrito.costo_envio">{{distrito.nombre_distrito}}</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="nombre_campaña">Cantidad</label>
+                <input type="text" id="cantidad" class="form-control">
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="nombre_campaña">Descuento</label>
+                <input type="text" id="descuento" class="form-control">
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="dateStart">Fecha desde</label>
+                <input type="date" id="dateStart" class="form-control">
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="dateEnd">Fecha hasta</label>
+                <input type="date" id="dateEnd" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>

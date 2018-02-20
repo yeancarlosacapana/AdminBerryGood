@@ -67,4 +67,8 @@ export class AppService {
   {
     return this.http.delete( this.Url + 'producto/' + cod_producto);
   }
+  public postCampain(oCampain)
+  {
+    return this.http.post(this.Url + 'campain', oCampain);
+  }
 }
