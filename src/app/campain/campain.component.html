@@ -42,54 +42,54 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="nombre_campaña">Nombre Campaña</label>
-                <input type="text" id="nombre_campaña" class="form-control">
+                <input type="text" id="nombre_campaña" class="form-control" [(ngModel)]="addCampania.nombre_campana">
               </div>
               <div class="form-group">
                 <label>Tipo de Campaña</label>
                 <div class="cont-check">
                   <div class="checkbox">
-                    <label><input type="checkbox" value="free">Envio Gratis</label>
+                    <label><input #elemFree type="checkbox" value="free" name="free" (change)="chkFree = (elemFree.checked)?elemFree.value:undefined">Envio Gratis</label>
                   </div>
                   <div class="checkbox">
-                    <label><input type="checkbox" value="descount">Descuento</label>
+                    <label><input #elemDescuento type="checkbox" value="descount" name="descuento" (change)="chkDescuento = (elemDescuento.checked)?elemDescuento.value:undefined">Descuento</label>
                   </div>
                   <div class="checkbox">
-                    <label><input type="checkbox" value="AditionalProduct">Producto Adicional</label>
+                    <label><input #elemAdditionalProduct type="checkbox" value="AditionalProduct" name="productoAdicional" (change)="chkAdditionalProduct = (elemAdditionalProduct.checked)?elemAdditionalProduct.value:undefined">Producto Adicional</label>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label>Producto</label>
-                <select  multiple class="form-control">
-                  <option *ngFor="let productos of listaProducto" [value]="productos.cod_producto">{{productos.nombre_producto}}</option>
+                <select  multiple class="form-control" [(ngModel)]="addCampania.producto">
+                  <option *ngFor="let productos of listaProducto" [value]="productos.nombre_producto">{{productos.nombre_producto}}</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Lugar Envio</label>
-                <select  multiple class="form-control">
+                <select  multiple class="form-control" [(ngModel)]="addCampania.costo_envio">
                   <option *ngFor="let distrito of listaDireccion" [value]="distrito.costo_envio">{{distrito.nombre_distrito}}</option>
                 </select>
               </div>
               <div class="form-group col-lg-6">
                 <label for="nombre_campaña">Cantidad</label>
-                <input type="text" id="cantidad" class="form-control">
+                <input type="text" id="cantidad" class="form-control" [(ngModel)]="addCampania.cantidad">
               </div>
               <div class="form-group col-lg-6">
                 <label for="nombre_campaña">Descuento</label>
-                <input type="text" id="descuento" class="form-control">
+                <input type="text" id="descuento" class="form-control" [(ngModel)]="addCampania.descuento">
               </div>
               <div class="form-group col-lg-6">
                 <label for="dateStart">Fecha desde</label>
-                <input type="date" id="dateStart" class="form-control">
+                <input type="date" id="dateStart" class="form-control" [(ngModel)]="addCampania.fecha_inicio">
               </div>
               <div class="form-group col-lg-6">
                 <label for="dateEnd">Fecha hasta</label>
-                <input type="date" id="dateEnd" class="form-control">
+                <input type="date" id="dateEnd" class="form-control" [(ngModel)]="addCampania.fecha_final">
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" (click)='postCampain()'>Save changes</button>
             </div>
           </div>
         </div>

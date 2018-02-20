@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { Campana } from '../class/campana';
+import { TipoCampana } from '../class/tipo-campana';
 
 declare var jQuery: any;
 declare var $: any;
@@ -13,6 +15,12 @@ export class CampainComponent implements OnInit {
 
   public listaDireccion: any[] = [];
   public listaProducto: any[] = [];
+  public addCampania: Campana = new Campana();
+  public tipoCampain: TipoCampana = new TipoCampana();
+
+  public chkDescuento;
+  public chkFree;
+  public chkAdditionalProduct;
 
   constructor(private Services: AppService) { }
 
@@ -32,6 +40,13 @@ export class CampainComponent implements OnInit {
   }
   showModalCampain() {
     jQuery('#campainModal').modal('show');
+  }
+  postCampain() {
+    this.addCampania.tipoCampain = new TipoCampana();
+    this.addCampania.tipoCampain.descuento = this.chkDescuento;
+    this.addCampania.tipoCampain.envio_gratis = this.chkFree;
+    this.addCampania.tipoCampain.producto_adicional = this.chkAdditionalProduct;
+    console.log(this.addCampania);
   }
 
 }
