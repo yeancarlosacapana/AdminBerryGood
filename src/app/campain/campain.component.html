@@ -20,15 +20,15 @@
       <td align=center>Fecha Inicio</td>
       <td align=center>Fecha Fin</td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let campain of listaCampain">
+      <td>{{campain.envio_gratis}},{{campain.discountChar}},{{campain.producto_adicional}}</td>
+      <td>{{campain.nombre_campana}}</td>
+      <td>{{campain.producto}}</td>
+      <td>{{campain.cantidad}}</td>
+      <td>{{campain.descuento}}</td>
+      <td>{{campain.envio}}</td>
+      <td>{{campain.fecha_inicio}}</td>
+      <td>{{campain.fecha_final}}</td>
     </tr>
   </table>
     <!-- Camapaña Modal -->
@@ -48,13 +48,13 @@
                 <label>Tipo de Campaña</label>
                 <div class="cont-check">
                   <div class="checkbox">
-                    <label><input #elemFree type="checkbox" value="free" name="free" (change)="chkFree = (elemFree.checked)?elemFree.value:undefined">Envio Gratis</label>
+                    <label><input #elemFree type="checkbox" value="Envio_gratis" name="free" (change)="chkFree = (elemFree.checked)?elemFree.value:undefined">Envio Gratis</label>
                   </div>
                   <div class="checkbox">
-                    <label><input #elemDescuento type="checkbox" value="descount" name="descuento" (change)="chkDescuento = (elemDescuento.checked)?elemDescuento.value:undefined">Descuento</label>
+                    <label><input #elemDescuento type="checkbox" value="Descuento" name="descuento" (change)="chkDescuento = (elemDescuento.checked)?elemDescuento.value:undefined">Descuento</label>
                   </div>
                   <div class="checkbox">
-                    <label><input #elemAdditionalProduct type="checkbox" value="AditionalProduct" name="productoAdicional" (change)="chkAdditionalProduct = (elemAdditionalProduct.checked)?elemAdditionalProduct.value:undefined">Producto Adicional</label>
+                    <label><input #elemAdditionalProduct type="checkbox" value="Producto_Adicional" name="productoAdicional" (change)="chkAdditionalProduct = (elemAdditionalProduct.checked)?elemAdditionalProduct.value:undefined">Producto Adicional</label>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
               <div class="form-group">
                 <label>Lugar Envio</label>
                 <select  multiple class="form-control" [(ngModel)]="addCampania.costo_envio">
-                  <option *ngFor="let distrito of listaDireccion" [value]="distrito.costo_envio">{{distrito.nombre_distrito}}</option>
+                  <option *ngFor="let distrito of listaDireccion" [value]="distrito.nombre_distrito">{{distrito.nombre_distrito}}</option>
                 </select>
               </div>
               <div class="form-group col-lg-6">

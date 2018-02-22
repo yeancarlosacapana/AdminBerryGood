@@ -67,8 +67,19 @@ export class AppService {
   {
     return this.http.delete( this.Url + 'producto/' + cod_producto);
   }
+  public getCampain()
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.get(this.Url + 'campain');
+  }
   public postCampain(oCampain)
+  // tslint:disable-next-line:one-line
   {
     return this.http.post(this.Url + 'campain', oCampain);
+  }
+  public getAdditionalProduct()
+  // tslint:disable-next-line:one-line
+  {
+    return this.http.get(this.Url + 'additionalProduct');
   }
 }
