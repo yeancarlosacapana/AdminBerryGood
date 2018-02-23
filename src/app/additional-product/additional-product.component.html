@@ -37,8 +37,8 @@
           <div class="modal-body">
             <div class="form-group">
               <label>Campaña</label>
-              <select name="" id="" class="form-control" [(ngModel)]="addProductAdditional.campain">
-                <option [value]="campain.cod_campana" *ngFor="let campain of listaCampain">{{campain.nombre_campana}}</option>
+              <select name="" id="" class="form-control" [(ngModel)]="addProductAdditional.cod_campana">
+                <option  *ngFor="let campain of listaCampain" [value]="campain.cod_campana">{{campain.nombre_campana}}</option>
               </select>
             </div>
             <div class="form-group">

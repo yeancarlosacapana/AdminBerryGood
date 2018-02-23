@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { CampanaAdicional } from '../class/campana-adicional';
+import { Campana } from '../class/campana';
 
 declare var jQuery: any;
 declare var $: any;
@@ -17,6 +18,7 @@ export class AdditionalProductComponent implements OnInit {
   public listaProducto: any[] = [];
   public listaProductAdditional: any[] = [];
   public addProductAdditional: CampanaAdicional = new CampanaAdicional();
+  public campain: Campana;
   constructor(private Services: AppService) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class AdditionalProductComponent implements OnInit {
   listCampain() {
     this.Services.getCampain().subscribe(rest => {
       this.listaCampain = rest.json();
+
     });
   }
   showModalAditionalProduct() {
@@ -49,7 +52,14 @@ export class AdditionalProductComponent implements OnInit {
     });
   }
   postProductAdditional() {
-    console.log(this.addProductAdditional);
+    // this.addProductAdditional.campain.cod_campaña = this.campain.cod_campaña;
+    // console.log(this.addProductAdditional);
+    this.Services.postAdditionalProduct(this.addProductAdditional).subscribe(rest => {
+      console.log(this.addProductAdditional);
+      console.log(rest);
+      jQuery('#productAditionalModal').modal('hide');
+      this.getProductAdditional();
+    });
   }
 
 }
