@@ -11,24 +11,20 @@
       <!-- <th colspan='1'> <button class='btn btn-primary btn-block' (click)='postCampain()'>Guardar Campaña</button> </th> -->
     </tr>
     <tr>
-      <td align=center>Tipo de Campaña</td>
-      <td align=center>Nombre de Campaña</td>
+      <td align=center>Campaña</td>
       <td align=center>Producto</td>
       <td align=center>Cantidad</td>
       <td align=center>Descuento</td>
-      <td align=center>Costo de envío</td>
       <td align=center>Fecha Inicio</td>
       <td align=center>Fecha Fin</td>
     </tr>
     <tr *ngFor="let campain of listaCampain">
-      <td>{{campain.envio_gratis}},{{campain.discountChar}},{{campain.producto_adicional}}</td>
-      <td>{{campain.nombre_campana}}</td>
-      <td>{{campain.producto}}</td>
-      <td>{{campain.cantidad}}</td>
-      <td>{{campain.descuento}}</td>
-      <td>{{campain.envio}}</td>
-      <td>{{campain.fecha_inicio}}</td>
-      <td>{{campain.fecha_final}}</td>
+      <td>{{campain.campain_name}}</td>
+      <td>{{campain.product_name}}</td>
+      <td>{{campain.quantity}}</td>
+      <td>{{campain.discount}}</td>
+      <td>{{campain.start_date}}</td>
+      <td>{{campain.end_date}}</td>
     </tr>
   </table>
     <!-- Camapaña Modal -->
@@ -69,6 +65,10 @@
                 <select  multiple class="form-control" [(ngModel)]="addCampania.costo_envio">
                   <option *ngFor="let distrito of listaDireccion" [value]="distrito.nombre_distrito">{{distrito.nombre_distrito}}</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <label for="envio">Costo Envio</label>
+                <input type="number" name="" id="envio" class="form-control" [(ngModel)]="addCampania.envio_costo">
               </div>
               <div class="form-group col-lg-6">
                 <label for="nombre_campaña">Cantidad</label>

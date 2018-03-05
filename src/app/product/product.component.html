@@ -13,22 +13,23 @@
     <tbody>
       <tr>
         <th>Producto</th>
-        <th>Imagen</th>
-        <th>Descripcion del Producto</th>
-        <th>Stock</th>
+        <!-- <th>Imagen</th> -->
+        <th>Descripcion</th>
         <th>Precio</th>
+        <th>Stock</th>
         <th>Tiempo entrega</th>
         <th>Categoria</th>
         <th>Acción</th>
       </tr>
       <tr *ngFor="let producto of listaProducto">
-        <td>{{producto.nombre_producto}}</td>
-        <td><img  [src] = "producto.url" class="img-circle img-tamaño"></td>
-        <td>{{(producto.desc_producto.length>40)? (producto.desc_producto | slice:0:40)+'..':(producto.desc_producto)}}</td>
+        <td>{{producto.product_name}}</td>
+        <!-- <td><img  [src] = "producto.url" class="img-circle img-tamaño"></td> -->
+        <!-- <td>{{(producto.product_desc.length>40)? (producto.desc_producto | slice:0:40)+'..':(producto.desc_producto)}}</td> -->
+        <td>{{producto.product_desc}}</td>
+        <td>{{producto.price}}</td>
         <td>{{producto.stock}}</td>
-        <td>{{producto.precio}}</td>
-        <td>{{producto.tiempo_entrega}}</td>
-        <td>{{producto.nombre_categoria}}</td>
+        <td>{{producto.delivery_time}}</td>
+        <td>{{producto.category_name}}</td>
         <td align=center>
           <a (click)='eliminarProducto(producto.cod_producto)'>
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -59,7 +60,7 @@
           </div>
           <div class="col-lg-12">
             <label for="tiempo_entrega">Tiempo de Entrega</label>
-            <input type="date" name="tiempo_entrega" id="tiempo_entrega" class="form-control" [(ngModel)]="addProducto.tiempo_entrega">
+            <input type="number" name="tiempo_entrega" id="tiempo_entrega" class="form-control" [(ngModel)]="addProducto.tiempo_entrega">
           </div>
           <div class="col-lg-12">
             <div class="form-group">

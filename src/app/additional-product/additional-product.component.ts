@@ -55,8 +55,6 @@ export class AdditionalProductComponent implements OnInit {
     // this.addProductAdditional.campain.cod_campaña = this.campain.cod_campaña;
     // console.log(this.addProductAdditional);
     this.Services.postAdditionalProduct(this.addProductAdditional).subscribe(rest => {
-      console.log(this.addProductAdditional);
-      console.log(rest);
       jQuery('#productAditionalModal').modal('hide');
       this.getProductAdditional();
     });

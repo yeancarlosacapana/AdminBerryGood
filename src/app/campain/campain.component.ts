@@ -51,13 +51,14 @@ export class CampainComponent implements OnInit {
   // enviando datos con array
   postCampain() {
      // this.addCampania.tipoCampain = new TipoCampana();
-      this.addCampania.tipoCampain.descuento = this.chkDescuento;
-      this.addCampania.tipoCampain.envio_gratis = this.chkFree;
-      this.addCampania.tipoCampain.producto_adicional = this.chkAdditionalProduct;
-    this.Services.postCampain(this.addCampania).subscribe(rest => {
-      jQuery('#campainModal').modal('hide');
-      this.listCampain();
-    });
+      // this.addCampania.tipoCampain.descuento = this.chkDescuento;
+      // this.addCampania.tipoCampain.envio_gratis = this.chkFree;
+      // this.addCampania.tipoCampain.producto_adicional = this.chkAdditionalProduct;
+    // this.Services.postCampain(this.addCampania).subscribe(rest => {
+    //   jQuery('#campainModal').modal('hide');
+    //   this.listCampain();
+    // });
+    console.log(this.addCampania);
   }
 
 }

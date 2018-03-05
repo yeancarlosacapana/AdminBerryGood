@@ -11,19 +11,17 @@
       <td align=center>Producto Adicional</td>
       <td align=center>Cantidad</td>
       <td align=center>Descuento</td>
-      <td align=center>Envio</td>
       <td align=center>Fecha Inicio</td>
       <td align=center>Fecha Fin</td>
       <td align=center>Campaña</td>
     </tr>
     <tr *ngFor="let ProductAdditional of listaProductAdditional">
-      <td>{{ProductAdditional.producto}}</td>
-      <td>{{ProductAdditional.cantidad}}</td>
-      <td>{{ProductAdditional.descuento}}</td>
-      <td>{{ProductAdditional.envio}}</td>
-      <td>{{ProductAdditional.fecha_inicio}}</td>
-      <td>{{ProductAdditional.fecha_final}}</td>
-      <td>{{ProductAdditional.nombre_campana}}</td>
+      <td>{{ProductAdditional.product_name}}</td>
+      <td>{{ProductAdditional.quantity}}</td>
+      <td>{{ProductAdditional.discount}}</td>
+      <td>{{ProductAdditional.start_date}}</td>
+      <td>{{ProductAdditional.end_date}}</td>
+      <td>{{ProductAdditional.campain_name}}</td>
     </tr>
   </table>
   <!-- Producto Adicional Modal -->

@@ -1,13 +1,12 @@
 export class Producto {
-  public cod_producto: number;
-  public desc_producto: string;
-  public imagen: string;
-  public precio: number;
+  public cod_product: number;
+  public product_desc: string;
+  public price: number;
   public stock: number;
-  public tiempo_entrega: Date;
-  public cod_categoria: number;
-  public nombre_producto: string;
+  public delivery_time: number;
+  public cod_category: number;
+  public product_name: string;
   constructor() {
-    this.cod_producto = 0 ;
+    this.cod_product = 0 ;
   }
 }
