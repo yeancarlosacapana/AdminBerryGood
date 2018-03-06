@@ -46,6 +46,7 @@ export class CampainComponent implements OnInit {
   listCampain() {
     this.Services.getCampain().subscribe(rest => {
       this.listaCampain = rest.json();
+      console.log(this.listaCampain);
     });
   }
   // enviando datos con array
